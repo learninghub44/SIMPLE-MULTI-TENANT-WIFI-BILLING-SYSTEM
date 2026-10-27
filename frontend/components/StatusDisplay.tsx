@@ -6,19 +6,19 @@ const StatusDisplay = ({ status }: { status: "pending" | "completed" | "failed" 
   const statusConfig = {
     pending: {
       icon: Clock,
-      className: "bg-yellow-500/20 border-yellow-500/30 text-yellow-700 dark:text-yellow-300",
+      className: "bg-amber-100 border-amber-200 text-amber-700",
       text: "Processing payment...",
       iconClass: "animate-pulse",
     },
     completed: {
       icon: CheckCircle,
-      className: "bg-green-500/20 border-green-500/30 text-green-700 dark:text-green-300",
+      className: "bg-primary/10 border-primary/20 text-primary",
       text: "Payment successful! You're connected.",
       iconClass: "",
     },
     failed: {
       icon: AlertTriangle,
-      className: "bg-red-500/20 border-red-500/30 text-red-700 dark:text-red-300",
+      className: "bg-destructive/10 border-destructive/20 text-destructive",
       text: "Payment failed. Please try again.",
       iconClass: "",
     },

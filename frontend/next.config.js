@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true, // Useful for static export
+    unoptimized: true,
   },
-  // Existing application-wide TS errors are tracked separately; keep the static
-  // export build available while those legacy modules are cleaned up.
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -18,7 +16,6 @@ const nextConfig = {
     };
     return config;
   },
-  output: "export", // Static export for Cloudflare Pages
   // Optional: set metadataBase if you use Open Graph/Twitter cards
   // metadataBase: new URL("https://yourdomain.com"),
 };

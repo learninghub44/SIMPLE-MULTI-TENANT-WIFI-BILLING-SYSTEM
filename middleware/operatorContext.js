@@ -23,7 +23,23 @@ async function operatorContext(req, res, next) {
   if (hostContext.kind === "invalid") {
     return res.status(404).json({ success: false, error: "Invalid operator subdomain." });
   }
-  if (hostContext.kind !== "operator") return next();
+  if (hostContext.kind !== "operator") {
+    // For local development, use a default operator if available
+    if (process.env.NODE_ENV !== "production") {
+      try {
+        const defaultOperator = await prisma.operator.findFirst({
+          where: { status: "active" },
+          select: { id: true, slug: true, businessName: true, status: true },
+        });
+        if (defaultOperator) {
+          req.operator = defaultOperator;
+        }
+      } catch (error) {
+        // Ignore error, continue without operator
+      }
+    }
+    return next();
+  }
 
   try {
     const operator = await prisma.operator.findUnique({

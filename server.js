@@ -14,6 +14,23 @@ const {
 } = require("./config/mikrotik"); // Make sure this exists
 const logger = require("./src/logger");
 
+// Initialize provider registries
+try {
+  const { paymentRegistry } = require("./src/integrations/payments/index");
+  const { smsRegistry } = require("./src/integrations/sms/index");
+  
+  // Make registries available globally for routes
+  global.paymentRegistry = paymentRegistry;
+  global.smsRegistry = smsRegistry;
+  
+  logger.info("Provider registries initialized successfully");
+  logger.info("Payment providers:", Object.keys(paymentRegistry.providers));
+  logger.info("SMS providers:", Object.keys(smsRegistry.providers));
+} catch (error) {
+  logger.error("Failed to initialize provider registries:", error);
+  // Continue without providers - existing routes will still work
+}
+
 // M-Pesa routes
 const mpesaRoutes = require("./routes/mpesaRoutes");
 const mpesaCallback = require("./routes/mpesaCallback");

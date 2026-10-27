@@ -37,17 +37,15 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/20 dark:border-white/10 bg-white/95 dark:bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-900/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                <Wifi className="h-6 w-6 text-white" />
-              </div>
+              <img src="/zetu-logo.png" alt="Zetu Business Solutions WiFi" className="h-10 w-auto" />
               <div>
-                <h1 className="text-xl font-bold text-slate-900 dark:text-white">Invoicify Pro</h1>
-                <p className="text-xs text-slate-600 dark:text-slate-400">High-Speed Internet</p>
+                <h1 className="text-xl font-bold text-foreground">Zetu Business Solutions</h1>
+                <p className="text-xs text-muted-foreground">High-Speed Internet</p>
               </div>
             </Link>
           </div>
@@ -57,26 +55,26 @@ export function Header() {
             {isAuthenticated && (
               <Link
                 href="/dashboard"
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Dashboard
               </Link>
             )}
             <Link
               href="/packages"
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Packages
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               About
             </Link>
             <Link
               href="/support"
-              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Support
             </Link>
@@ -85,7 +83,7 @@ export function Header() {
                 {user?.username === 'Denis2' && (
                   <Link
                     href="/admin"
-                    className="text-sm font-medium text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                    className="text-sm font-medium text-destructive hover:text-destructive/80 transition-colors"
                   >
                     Admin Panel
                   </Link>
@@ -94,7 +92,7 @@ export function Header() {
                   onClick={handleLogout}
                   variant="ghost"
                   size="sm"
-                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  className="text-muted-foreground hover:text-foreground"
                 >
                   <LogOut className="w-4 h-4 mr-2" />
                   Logout
@@ -103,7 +101,7 @@ export function Header() {
             ) : (
               <Link
                 href="/login"
-                className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
               >
                 Login
               </Link>
@@ -119,7 +117,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-900 dark:text-white"
+              className="text-foreground"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -129,12 +127,12 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-slate-200/20 dark:border-white/10 py-4">
+          <div className="md:hidden border-t border-border py-4">
             <nav className="flex flex-col space-y-4">
               {isAuthenticated && (
                 <Link
                   href="/dashboard"
-                  className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Dashboard
@@ -142,32 +140,32 @@ export function Header() {
               )}
               <Link
                 href="/packages"
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Packages
               </Link>
               <Link
                 href="/about"
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/support"
-                className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Support
               </Link>
 
               {isAuthenticated ? (
-                <div className="flex flex-col space-y-2 pt-2 border-t border-slate-200/20 dark:border-white/10">
+                <div className="flex flex-col space-y-2 pt-2 border-t border-border">
                   {user?.username === 'Denis2' && (
                     <Link
                       href="/admin"
-                      className="text-sm font-medium text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                      className="text-sm font-medium text-destructive hover:text-destructive/80 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Admin Panel
@@ -180,7 +178,7 @@ export function Header() {
                     }}
                     variant="ghost"
                     size="sm"
-                    className="justify-start text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                    className="justify-start text-muted-foreground hover:text-foreground"
                   >
                     <LogOut className="w-4 h-4 mr-2" />
                     Logout
@@ -189,7 +187,7 @@ export function Header() {
               ) : (
                 <Link
                   href="/login"
-                  className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Login

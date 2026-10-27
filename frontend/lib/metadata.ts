@@ -12,8 +12,8 @@ export interface PageMetadataOptions {
 export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
   const {
     title = PROJECT_NAME,
-    description = 'WiFi Billing System - Fast, reliable, and affordable internet access',
-    keywords = ['WiFi', 'internet', 'billing', 'M-Pesa', 'Kenya', 'Invoicify Pro'],
+    description = 'Zetu Business Solutions - Complete WiFi billing platform for Kenya. Manage your hotspot business with M-Pesa payments, MikroTik integration, and real-time monitoring.',
+    keywords = ['WiFi', 'internet', 'billing', 'M-Pesa', 'Kenya', 'Zetu Business Solutions', 'hotspot', 'MikroTik', 'WiFi management', 'internet service provider'],
     image = '/og-image.jpg',
     noIndex = false
   } = options
@@ -27,6 +27,7 @@ export function generateMetadata(options: PageMetadataOptions = {}): Metadata {
       description,
       images: [image],
       type: 'website',
+      siteName: PROJECT_NAME,
     },
     twitter: {
       card: 'summary_large_image',
@@ -53,11 +54,11 @@ export function generatePageMetadata(
 }
 
 // Predefined metadata for common pages
-export const homeMetadata = generatePageMetadata('Home', 'Fast, reliable, and affordable WiFi internet access powered by M-Pesa payments.')
-export const aboutMetadata = generatePageMetadata('About Us', 'Learn about Invoicify Pro, our mission, team, and commitment to providing quality internet services.')
+export const homeMetadata = generatePageMetadata('Home', 'Zetu Business Solutions - Complete WiFi billing platform for Kenya. Manage your hotspot business with M-Pesa payments, MikroTik integration, and real-time monitoring.')
+export const aboutMetadata = generatePageMetadata('About Us', 'Learn about Zetu Business Solutions, our mission, team, and commitment to providing quality internet services across Kenya.')
 export const adminMetadata = generatePageMetadata('Admin Dashboard', 'Manage users, transactions, and system settings for the WiFi billing system.')
-export const supportMetadata = generatePageMetadata('Support', 'Get help with your WiFi connection, billing, or technical issues.')
-export const packagesMetadata = generatePageMetadata('WiFi Packages', 'Choose from our range of WiFi packages with different speeds and durations.')
+export const supportMetadata = generatePageMetadata('Support', 'Get help with your WiFi connection, billing, or technical issues. Our support team is available 24/7.')
+export const packagesMetadata = generatePageMetadata('WiFi Packages', 'Choose from our range of WiFi packages with different speeds and durations. Affordable internet for everyone.')
 
 // Dynamic metadata for product pages
 export function generateProductMetadata(productName: string, description?: string): Metadata {

@@ -1,63 +1,99 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
-/* ✅ Base theme tokens (unchanged) */
+/* Teal/Emerald Design System */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Backgrounds */
+    --background: 170 30% 98%;
+    --foreground: 175 45% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 175 45% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 175 45% 12%;
+    
+    /* Primary - Deep Teal */
+    --primary: 175 79% 20%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Light Mint */
+    --secondary: 170 40% 96%;
+    --secondary-foreground: 175 45% 12%;
+    
+    /* Muted */
+    --muted: 170 40% 96%;
+    --muted-foreground: 190 12% 40%;
+    
+    /* Accent - Emerald */
+    --accent: 165 83% 36%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.75rem;
+    
+    /* Borders */
+    --border: 175 30% 90%;
+    --input: 175 30% 90%;
+    
+    /* Ring */
+    --ring: 175 79% 20%;
+    
+    /* Radius */
+    --radius: 0.5rem;
 
-    /* ✅ Include font vars */
-    --font-sans: '__GeistSans_fb8f2c'; /* Example value, updated at runtime */
+    /* Sidebar specific */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 175 45% 12%;
+    --sidebar-primary: 175 79% 20%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 170 40% 96%;
+    --sidebar-accent-foreground: 175 45% 12%;
+    --sidebar-border: 175 30% 90%;
+    --sidebar-ring: 175 79% 20%;
+
+    /* Font vars */
+    --font-sans: '__GeistSans_fb8f2c';
     --font-mono: '__GeistMono_f910ec';
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 175 45% 12%;
+    --foreground: 170 30% 98%;
+    --card: 175 45% 12%;
+    --card-foreground: 170 30% 98%;
+    --popover: 175 45% 12%;
+    --popover-foreground: 170 30% 98%;
+    --primary: 165 83% 36%;
+    --primary-foreground: 175 45% 12%;
+    --secondary: 175 79% 16%;
+    --secondary-foreground: 170 30% 98%;
+    --muted: 175 79% 16%;
+    --muted-foreground: 190 12% 60%;
+    --accent: 165 83% 36%;
+    --accent-foreground: 175 45% 12%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
+    --border: 175 79% 16%;
+    --input: 175 79% 16%;
+    --ring: 165 83% 36%;
+    
+    --sidebar: 175 45% 12%;
+    --sidebar-foreground: 170 30% 98%;
+    --sidebar-primary: 165 83% 36%;
+    --sidebar-primary-foreground: 175 45% 12%;
+    --sidebar-accent: 175 79% 16%;
+    --sidebar-accent-foreground: 170 30% 98%;
+    --sidebar-border: 175 79% 16%;
+    --sidebar-ring: 165 83% 36%;
   }
 }
 
-/* ✅ Apply font families using CSS variables */
+/* Apply font families and transitions */
 @layer base {
   html {
     font-family: var(--font-sans);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
   }
 
   body {
@@ -66,6 +102,31 @@
 
   * {
     @apply border-border;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  
+  /* Page transition animation */
+  main {
+    animation: fadeInUp 0.25s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

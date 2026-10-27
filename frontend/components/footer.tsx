@@ -9,48 +9,41 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-slate-200/20 dark:border-white/10 bg-slate-50/50 dark:bg-slate-900/50 backdrop-blur">
+    <footer className="border-t border-border bg-secondary/30 backdrop-blur">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg overflow-hidden">
-                <Image
-                  src="/logo.svg"
-                  alt="Invoicify Pro"
-                  width={40}
-                  height={40}
-                />
-              </div>
-              <span className="text-lg font-bold text-slate-900 dark:text-white">Invoicify Pro</span>
+              <img src="/zetu-logo.png" alt="Zetu Business Solutions WiFi" className="h-10 w-auto" />
+              <span className="text-lg font-bold text-foreground">Zetu Business Solutions</span>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs">
+            <p className="text-sm text-muted-foreground max-w-xs">
               Providing fast, reliable internet access with seamless M-Pesa integration for easy payments.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <h3 className="text-sm font-semibold text-foreground">Quick Links</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/packages" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/packages" className="hover:text-foreground transition-colors">
                   Packages
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/about" className="hover:text-foreground transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/support" className="hover:text-foreground transition-colors">
                   Support
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/admin" className="hover:text-foreground transition-colors">
                   Admin
                 </Link>
               </li>
@@ -59,25 +52,25 @@ export function Footer() {
 
           {/* Support */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Support</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <h3 className="text-sm font-semibold text-foreground">Support</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/support#help" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/support#help" className="hover:text-foreground transition-colors">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/support#contact" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/support#contact" className="hover:text-foreground transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/support#terms" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/support#terms" className="hover:text-foreground transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/support#privacy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/support#privacy" className="hover:text-foreground transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -86,21 +79,21 @@ export function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Contact</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li>Email: support@invoicifydenis.co.ke</li>
-              <li>Phone: 0798750585</li>
+            <h3 className="text-sm font-semibold text-foreground">Contact</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>Email: support@christech.co.ke</li>
+              <li>Phone: 0701059192</li>
               <li>Available 24/7</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-slate-200/20 dark:border-white/10 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-sm text-slate-600 dark:text-slate-400">© {currentYear} Invoicify Pro. All rights reserved.</p>
+        <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-sm text-muted-foreground">© {currentYear} Zetu Business Solutions. All rights reserved.</p>
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <Badge
               variant="outline"
-              className="text-green-600 dark:text-green-400 border-green-600 dark:border-green-400"
+              className="text-primary border-primary"
             >
               <Shield className="w-3 h-3 mr-1" />
               Secure Payments

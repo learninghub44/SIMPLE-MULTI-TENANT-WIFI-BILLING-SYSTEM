@@ -5,9 +5,14 @@ import './globals.css'
 import { generateMetadata } from '@/lib/metadata'
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Invoicify Pro - Fast, Reliable Internet Access',
+  title: 'Zetu Business Solutions WiFi - Fast, Reliable Internet Access',
   description: 'WiFi Billing System - Fast, reliable, and affordable internet access powered by M-Pesa payments in Kenya.',
-  keywords: ['WiFi', 'internet', 'billing', 'M-Pesa', 'Kenya', 'Invoicify Pro', 'WiFi packages'],
+  keywords: ['WiFi', 'internet', 'billing', 'M-Pesa', 'Kenya', 'Zetu Business Solutions', 'WiFi packages'],
+  icons: {
+    icon: '/zetu-logo.png',
+    shortcut: '/zetu-logo.png',
+    apple: '/zetu-logo.png',
+  },
 })
 
 export default function RootLayout({

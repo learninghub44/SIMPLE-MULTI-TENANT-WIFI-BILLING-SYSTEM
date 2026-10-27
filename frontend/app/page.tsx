@@ -272,23 +272,145 @@ const pollPaymentStatus = async (txnId: string) => {
   }
 
   if (!operatorResolved) {
-    return <main className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-300">Loading Wi-Fi operator…</main>
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-background text-foreground flex-col gap-4">
+        <img src="/zetu-logo.png" alt="Zetu Business Solutions WiFi" className="h-16 w-auto" />
+        <p>Loading Wi-Fi operator…</p>
+      </main>
+    )
   }
 
   if (!operator) {
     return (
-      <div className="min-h-screen bg-slate-950 px-4 py-12 text-slate-100">
-        <main className="mx-auto flex min-h-[70vh] max-w-3xl flex-col items-center justify-center text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-cyan-400">Wi-Fi Billing Platform</p>
-          <h1 className="mt-4 text-4xl font-bold sm:text-5xl">Manage your hotspot business</h1>
-          <p className="mt-4 max-w-xl text-lg text-slate-400">
-            Create an operator account, connect PayHero and your MikroTik router, then serve customers from your own subdomain.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/operator/signup" className="rounded-lg bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400">Create operator account</a>
-            <a href="/operator/login" className="rounded-lg border border-slate-700 px-5 py-3 font-semibold hover:bg-slate-900">Operator sign in</a>
-          </div>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          {/* Hero Section */}
+          <section className="px-4 py-20 lg:py-32 text-center">
+            <div className="mx-auto max-w-6xl">
+              <div className="mb-8 flex justify-center">
+                <img src="/zetu-logo.png" alt="Zetu Business Solutions WiFi" className="h-24 w-auto" />
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">WiFi Billing Platform</p>
+              <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
+                Manage your hotspot business
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                  with ease
+                </span>
+              </h1>
+              <p className="mt-4 max-w-3xl text-xl text-muted-foreground mx-auto mb-8">
+                Create an operator account, connect payment providers and your MikroTik router, then serve customers from your own subdomain. The complete WiFi billing solution for Kenya.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="/operator/signup" className="rounded-lg bg-primary px-8 py-4 font-semibold text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg">Create operator account</a>
+                <a href="/operator/login" className="rounded-lg border-2 border-primary px-8 py-4 font-semibold text-primary hover:bg-primary/5 transition-colors">Operator sign in</a>
+              </div>
+            </div>
+          </section>
+
+          {/* Features Section */}
+          <section className="px-4 py-20 bg-secondary/30">
+            <div className="mx-auto max-w-6xl">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Why Choose Zetu Business Solutions?</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Powerful features designed to help you manage your WiFi business efficiently</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Instant Payments</h3>
+                  <p className="text-muted-foreground text-sm">Accept M-Pesa payments instantly with multiple payment providers including PayHero and Daraja</p>
+                </div>
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Secure Access</h3>
+                  <p className="text-muted-foreground text-sm">Automated MikroTik integration for seamless WiFi access control and user management</p>
+                </div>
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Multi-Tenant</h3>
+                  <p className="text-muted-foreground text-sm">Serve multiple operators from a single platform with custom subdomains for each business</p>
+                </div>
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <Globe className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Real-time Monitoring</h3>
+                  <p className="text-muted-foreground text-sm">Track payments, user sessions, and revenue in real-time with comprehensive dashboards</p>
+                </div>
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <Phone className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">SMS Notifications</h3>
+                  <p className="text-muted-foreground text-sm">Send automated SMS notifications to customers about payments and session status</p>
+                </div>
+                <div className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <Shield className="w-6 h-6 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Loan Management</h3>
+                  <p className="text-muted-foreground text-sm">Offer "Okoa Internet" loans to customers with flexible repayment options</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* How It Works */}
+          <section className="px-4 py-20">
+            <div className="mx-auto max-w-6xl">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">How It Works</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Get started in 3 simple steps</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">1</div>
+                  <h3 className="font-semibold text-foreground mb-2">Create Account</h3>
+                  <p className="text-muted-foreground text-sm">Sign up as an operator and set up your business profile</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">2</div>
+                  <h3 className="font-semibold text-foreground mb-2">Connect Services</h3>
+                  <p className="text-muted-foreground text-sm">Link your payment providers and MikroTik router</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">3</div>
+                  <h3 className="font-semibold text-foreground mb-2">Start Serving</h3>
+                  <p className="text-muted-foreground text-sm">Begin serving customers and managing your WiFi business</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="px-4 py-20 bg-primary">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">Ready to Start?</h2>
+              <p className="text-xl text-primary-foreground/90 mb-8">Join hundreds of WiFi operators already using Zetu Business Solutions</p>
+              <a href="/operator/signup" className="inline-block rounded-lg bg-primary-foreground px-8 py-4 font-semibold text-primary hover:bg-primary-foreground/90 transition-colors shadow-lg">Create your free account</a>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section className="px-4 py-20 bg-secondary/30">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Need Help?</h2>
+              <p className="text-lg text-muted-foreground mb-8">Our support team is available 24/7 to assist you</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a href="mailto:support@christech.co.ke" className="rounded-lg border border-border px-6 py-3 font-semibold text-foreground hover:bg-card transition-colors">support@christech.co.ke</a>
+                <a href="tel:+254101024580" className="rounded-lg border border-border px-6 py-3 font-semibold text-foreground hover:bg-card transition-colors">+254101024580</a>
+              </div>
+            </div>
+          </section>
         </main>
+        <Footer />
       </div>
     )
   }
@@ -296,19 +418,19 @@ const pollPaymentStatus = async (txnId: string) => {
   return (
     <>
       <ToastProvider />
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="min-h-screen bg-background">
         <Header />
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
           <div className="max-w-4xl mx-auto">
             {/* Hero Section */}
             <div className="text-center mb-12">
-              <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+              <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-4">
                 {operator.businessName}
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                   Instantly
                 </span>
               </h1>
-              <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Choose your internet package and pay securely with M-Pesa. Fast, reliable, and affordable internet
                 access.
               </p>
@@ -318,17 +440,17 @@ const pollPaymentStatus = async (txnId: string) => {
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Payment Form */}
-              <Card className="bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-white/10 backdrop-blur">
+              <Card className="bg-card border-border shadow-sm">
                 <CardHeader>
-                  <CardTitle className="text-slate-900 dark:text-white flex items-center">
-                    <Zap className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
+                  <CardTitle className="text-foreground flex items-center">
+                    <Zap className="w-5 h-5 mr-2 text-primary" />
                     Quick Payment
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Phone Input */}
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-slate-700 dark:text-slate-300 flex items-center">
+                    <Label htmlFor="phone" className="text-foreground flex items-center">
                       <Phone className="w-4 h-4 mr-2" />
                       M-Pesa Number
                     </Label>
@@ -338,14 +460,14 @@ const pollPaymentStatus = async (txnId: string) => {
                       placeholder="0798750585"
                       value={phone}
                       onChange={handlePhoneChange}
-                      className="bg-white/50 dark:bg-slate-700/50 border-slate-300 dark:border-white/10 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                      className="bg-background border-input text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                       maxLength={10}
                     />
                   </div>
 
                   {/* Package Selection */}
                   <div className="space-y-4">
-                    <Label className="text-slate-700 dark:text-slate-300 flex items-center">
+                    <Label className="text-foreground flex items-center">
                       <Package className="w-4 h-4 mr-2" />
                       Select Package
                     </Label>
@@ -361,11 +483,11 @@ const pollPaymentStatus = async (txnId: string) => {
                     <Button
                       onClick={handlePayment}
                       disabled={isLoading || !phone || phone.length !== 10 || !/^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i.test(macAddress)}
-                      className="flex-1 h-12 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold transition-all duration-300 disabled:opacity-50"
+                      className="flex-1 h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-colors disabled:opacity-50"
                     >
                       {isLoading ? (
                         <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-primary-foreground mr-2"></div>
                           Processing...
                         </>
                       ) : (
@@ -380,7 +502,7 @@ const pollPaymentStatus = async (txnId: string) => {
                       <Button
                         onClick={handleLoan}
                         disabled={isLoanLoading || isLoading || !phone || phone.length !== 10}
-                        className="flex-1 h-12 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold transition-all duration-300 disabled:opacity-50"
+                        className="flex-1 h-12 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-colors disabled:opacity-50"
                       >
                         {isLoanLoading ? "Processing loan..." : <><Shield className="w-5 h-5 mr-2" />Okoa Internet</>}
                       </Button>
@@ -388,7 +510,7 @@ const pollPaymentStatus = async (txnId: string) => {
                   </div>
 
                   {!/^([0-9a-f]{2}:){5}[0-9a-f]{2}$/i.test(macAddress) && (
-                    <p className="text-xs text-amber-700 dark:text-amber-300">
+                    <p className="text-xs text-destructive bg-destructive/10 p-2 rounded">
                       Open this page from the hotspot portal so it can provide your device MAC address.
                     </p>
                   )}
